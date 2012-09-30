@@ -2,3 +2,6 @@
 *.pot
 *.pyc
 local_settings.py
+test_project/media/*
+test_project/production/media/*
+*.db
