@@ -82,4 +82,5 @@ Demo
 Clone the repository and runs on two separate consoles:
 
 1 $ ./manage.py runserver 8000
+
 2 $ ./prod_manage.py runserver 8001
