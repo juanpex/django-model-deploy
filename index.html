@@ -1,0 +1,132 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Django Model Deploy by juanpex</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/main.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  </head>
+  <body>
+
+      <header>
+        <h1>Django Model Deploy</h1>
+        <p>Django application that facilitates the publication of data between environments such as development, testing and production.</p>
+      </header>
+
+      <div id="banner">
+        <span id="logo"></span>
+
+        <a href="https://github.com/juanpex/django-model-deploy" class="button fork"><strong>View On GitHub</strong></a>
+        <div class="downloads">
+          <span>Downloads:</span>
+          <ul>
+            <li><a href="https://github.com/juanpex/django-model-deploy/zipball/master" class="button">ZIP</a></li>
+            <li><a href="https://github.com/juanpex/django-model-deploy/tarball/master" class="button">TAR</a></li>
+          </ul>
+        </div>
+      </div><!-- end banner -->
+
+    <div class="wrapper">
+      <nav>
+        <ul></ul>
+      </nav>
+      <section>
+        <h1>Django Model Deploy</h1>
+
+<p>Django application that facilitates the publication of data between environments such as development, testing and production.</p>
+
+<h1>Installation</h1>
+
+<ul>
+<li><p>Add the <code>model_deploy</code> directory to your Python path.</p></li>
+<li><p>Add <code>model_deploy</code> to your <code>INSTALLED_APPS</code> setting.</p></li>
+<li><p>Create file "deploys.py" within the project directory.</p></li>
+<li>
+<p>Edit the file "deploys.py" and register your models to be deployed like this:</p>
+
+<pre><code>from app.models import AppModel
+from model_deploy import core
+
+core.register(AppModel)
+</code></pre>
+</li>
+<li>
+<p>In your urls.py import your module "deploys.py".</p>
+
+<pre><code>from projectfolder impot deploys
+</code></pre>
+</li>
+</ul><h1>Configuration</h1>
+
+<ul>
+<li>
+<p><code>SERVERS</code></p>
+
+<p>A dictionary, like <code>DATABASES</code>, when you describe the environments for each server you have.
+For example::</p>
+
+<pre><code>SERVERS = {
+    'current': {
+        'name': 'Testing server',
+        'url': 'http://127.0.0.1:8000',
+        'user': 'admin',
+        'password': 'admin'
+    },
+    'production': {
+        'name': 'Production server',
+        'url': 'http://127.0.0.1:8001/deploy/',
+        'user': 'padmin',
+        'password': 'padmin'
+    },
+}
+</code></pre>
+
+<p><code>'name'</code>: Friendly name of the server.</p>
+
+<p><code>'url'</code>: URL of the server that is configured to handle <code>model_deploy</code> logs sent.</p>
+
+<p><code>'user'</code> and <code>'password'</code>: valid user credentials of <code>django.contrib.auth</code>.</p>
+</li>
+<li>
+<p>Optional: <code>DEFAULT_DEPLOY_SERVER</code> Default: <code>None</code>.</p>
+
+<p>Key value of the server to target all logs to deploy.</p>
+
+<p>For example:: <code>'production'</code></p>
+</li>
+<li>
+<p>Optional: <code>MODEL_DEPLOY</code> Default: <code>True</code>.</p>
+
+<p>This setting manages the generation of logs changes made to the data of registered models.</p>
+
+<p>Is you must set to False when the project is not required to send data to another server.</p>
+</li>
+</ul><h1>Usage</h1>
+
+<p>You can manage your deploys with <code>django.contrib.admin</code> or running <code>./manage.py deploytoserver --server=serverkey</code></p>
+
+<h1>Demo</h1>
+
+<p>Clone the repository and runs on two separate consoles:</p>
+
+<p>1 $ ./manage.py runserver 8000</p>
+
+<p>2 $ ./prod_manage.py runserver 8001</p>
+      </section>
+      <footer>
+        <p>Project maintained by <a href="https://github.com/juanpex">juanpex</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="http://twitter.com/#!/michigangraham">mattgraham</a></small></p>
+      </footer>
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+    
+  </body>
+</html>
