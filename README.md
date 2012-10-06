@@ -22,7 +22,7 @@ Installation
 
 * In your urls.py import your module "deploys.py".
 
-        from projectfolder impot deploys
+        from projectfolder import deploys
 
 
 Configuration
