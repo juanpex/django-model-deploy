@@ -84,3 +84,7 @@ Clone the repository and runs on two separate consoles:
 1 $ ./manage.py runserver 8000
 
 2 $ ./prod_manage.py runserver 8001
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/juanpex/django-model-deploy/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
